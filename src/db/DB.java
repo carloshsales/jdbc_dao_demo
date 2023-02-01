@@ -15,7 +15,7 @@ public class DB {
 	
 	private static Connection connection = null;
 	
-	public static void getConnection() {
+	public static Connection getConnection() {
 		if(connection == null) {
 			try {
 				Properties props = loadProperties();
@@ -25,6 +25,7 @@ public class DB {
 				throw new GeneralDBException(e.getMessage());
 			}
 		}
+		return connection;
 	}
 	
 	public static void closeConnection() {
